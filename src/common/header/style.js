@@ -53,17 +53,37 @@ export const NavSearch=styles.input.attrs({
 })`
     width:160px;
     height:38px;
-    padding:0 20px;
+    padding:0 30px 0 20px;
     margin-top:9px;
     box-sizing:border-box;
     border:none;
     outline:none;
     border-radius:19px;
     font-size:14px;
+    color:#666;
     background:#eee;
     margin-left:20px;
     &::placeholder{
         color:#999
+    }
+    &.focused{
+        width:240px;
+    }
+    // 定义进入过渡的开始状态
+    &.fade-enter{
+        transition:all .2s ease-out;
+    }
+    // 定义进入过渡生效时的状态
+    &.fade-enter-active{
+        width:240px;
+    }
+    // 定义离开过渡的开始状态
+    &.fade-exit{
+        transition:all .2s ease-out;
+    }
+    // 定义离开过渡生效时的状态
+    &.fade-exit-active{
+        width:160px;
     }
 `
 export const Addition=styles.div`
@@ -101,5 +121,11 @@ export const SearchWrapper=styles.div`
         border-radius:15px;
         text-align:center;
         // background:
+        &.focused{
+            background:#777;
+            color:#fff;
+        }
     }
+
+    
 `

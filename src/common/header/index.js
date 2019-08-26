@@ -1,17 +1,29 @@
-import React,{Component} from 'react';
+import React from 'react';
 import {HeaderWrapper,Logo,NavWrapper,Nav,NavItem,NavSearch,Addition,Button,SearchWrapper} from './style'
-export default class Header extends Component{
-    render(){
-        return(
-            <NavWrapper>
+import { CSSTransition } from 'react-transition-group'
+import {connect} from 'react-redux'
+import {actionCreator} from './store'
+const Header=(props)=>{
+    const {focused,handleFocus,handleBlur}=props;
+    return(
+        <NavWrapper>
                 <HeaderWrapper>
                     <Logo href="/"></Logo>
                     <Nav>
                         <NavItem className="left">首页</NavItem>
                         <NavItem className="left">下载App</NavItem>
                         <SearchWrapper>
-                            <NavSearch></NavSearch>
-                            <i className="iconfont">&#xe62b;</i>
+                            <CSSTransition
+                                in={focused}
+                                timeout={200}
+                                classNames='fade'
+                            >
+                                <NavSearch className={focused?'focused':''} 
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                                ></NavSearch>
+                            </CSSTransition>
+                            <i className={focused?'iconfont focused':'iconfont'}>&#xe62b;</i>
                         </SearchWrapper>
                        
                         <NavItem className="right">登陆</NavItem>
@@ -25,7 +37,21 @@ export default class Header extends Component{
                     </Addition>
                 </HeaderWrapper>
             </NavWrapper>
-            
-        )
+    )
+}
+const mapStateToProps=(state)=>{
+    return{
+        focused:state.header.focused
     }
 }
+const mapDispathToProps=(dispatch)=>{
+    return{
+        handleFocus(){
+            dispatch(actionCreator.inputFocus());
+        },
+        handleBlur(){
+            dispatch(actionCreator.inputBlur());
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispathToProps)(Header)
