@@ -1,10 +1,35 @@
-import React from 'react';
-import {HeaderWrapper,Logo,NavWrapper,Nav,NavItem,NavSearch,Addition,Button,SearchWrapper} from './style'
+import React,{Component} from 'react';
+import {HeaderWrapper,Logo,NavWrapper,Nav,NavItem,NavSearch,Addition,Button,SearchWrapper,SearchInfo,SearchInfoTitle,SearchInfoSwitch,SearchInfoItem} from './style'
 import { CSSTransition } from 'react-transition-group'
 import {connect} from 'react-redux'
 import {actionCreator} from './store'
-const Header=(props)=>{
-    const {focused,handleFocus,handleBlur}=props;
+class Header extends Component{
+    getListArea(show){
+        if(show){
+            return(
+                    <SearchInfo>
+                        <SearchInfoTitle>
+                            热门搜索
+                             <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                        </SearchInfoTitle>
+                        <div>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                            <SearchInfoItem>教育</SearchInfoItem>
+                        </div>
+                    </SearchInfo>
+            )
+        }else{
+            return null
+        }
+    }
+    render(){
+        const {focused,handleFocus,handleBlur}=this.props;
     return(
         <NavWrapper>
                 <HeaderWrapper>
@@ -24,6 +49,7 @@ const Header=(props)=>{
                                 ></NavSearch>
                             </CSSTransition>
                             <i className={focused?'iconfont focused':'iconfont'}>&#xe62b;</i>
+                            {this.getListArea(focused)}
                         </SearchWrapper>
                        
                         <NavItem className="right">登陆</NavItem>
@@ -38,6 +64,7 @@ const Header=(props)=>{
                 </HeaderWrapper>
             </NavWrapper>
     )
+    }
 }
 const mapStateToProps=(state)=>{
     return{
