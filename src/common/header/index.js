@@ -8,9 +8,12 @@ class Header extends Component{
         const {focused,list,mouseIn,currentPage,totalPage,handleMouseEnter,handleMouseLeave,handleChangePage}=this.props;
         const newList=list.toJS();
         const pageList=[];
-        for(let i=(currentPage-1)*10;i<currentPage*10;i++){
-            pageList.push(<SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>)
+        if(newList.length){
+            for(let i=(currentPage-1)*10;i<currentPage*10;i++){
+                pageList.push(<SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>)
+            }
         }
+        
         if(focused||mouseIn){
             return(
                     <SearchInfo onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
