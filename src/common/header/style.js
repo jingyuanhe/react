@@ -1,8 +1,11 @@
 import styles from 'styled-components'
 import logo from '../../assets/img/logo.png'
+export const TopWrapper=styles.div`
+height:56px;
+width:100%;
+`
 export const NavWrapper=styles.nav`
 min-height: 50px;
-margin-bottom: 20px;
 border: 1px solid transparent;
 background-color: #fff;
 border-color: #f0f0f0;

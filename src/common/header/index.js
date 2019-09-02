@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {HeaderWrapper,Logo,NavWrapper,Nav,NavItem,NavSearch,Addition,Button,SearchWrapper,SearchInfo,SearchInfoTitle,SearchInfoSwitch,SearchInfoItem} from './style'
+import {TopWrapper,HeaderWrapper,Logo,NavWrapper,Nav,NavItem,NavSearch,Addition,Button,SearchWrapper,SearchInfo,SearchInfoTitle,SearchInfoSwitch,SearchInfoItem} from './style'
 import { CSSTransition } from 'react-transition-group'
 import {connect} from 'react-redux'
 import {actionCreator} from './store'
@@ -33,8 +33,9 @@ class Header extends Component{
         }
     }
     render(){
-        const {focused,handleFocus,handleBlur}=this.props;
+        const {focused,handleFocus,handleBlur,list}=this.props;
     return(
+        <TopWrapper>
         <NavWrapper>
                 <HeaderWrapper>
                     <Logo href="/"></Logo>
@@ -48,7 +49,7 @@ class Header extends Component{
                                 classNames='fade'
                             >
                                 <NavSearch className={focused?'focused':''} 
-                                onFocus={handleFocus}
+                                onFocus={()=>{handleFocus(list)}}
                                 onBlur={handleBlur}
                                 ></NavSearch>
                             </CSSTransition>
@@ -67,6 +68,7 @@ class Header extends Component{
                     </Addition>
                 </HeaderWrapper>
             </NavWrapper>
+            </TopWrapper>
     )
     }
 }
@@ -81,8 +83,8 @@ const mapStateToProps=(state)=>{
 }
 const mapDispathToProps=(dispatch)=>{
     return{
-        handleFocus(){
-            dispatch(actionCreator.getList());
+        handleFocus(list){
+            list.size==0&&dispatch(actionCreator.getList());
             dispatch(actionCreator.inputFocus());
         },
         handleBlur(){
