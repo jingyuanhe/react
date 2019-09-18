@@ -10,8 +10,8 @@ padding-top:30px;
 margin-left:15px;
 width:625px;
 .banner-img{
-    width:576px;
-    height:521px;
+    width:682px;
+    height:436px;
 }
 `
 export const HomeRight =styles.div`
@@ -25,14 +25,23 @@ margin-left:-18px;
 `
 export const TopicItem=styles.div`
     float:left;
-    height:32px;
-    line-height:32px;
+    height:40px;
+    line-height:40px;
     font-size:14px;
     background:#f7f7f7;
     padding-right:10px;
-    padding-left:10px;
     border:1px solid #dcdcdc;
     border-radius:4px;
     margin-left:18px;
     margin-bottom:18px;
+    .topic-pic{
+        width:40px;
+        height:40px;
+        display:block;
+        float:left;
+        margin-right:10px;
+    }
+`
+export const ListItem=styles.div`
+    padding:20px;
 `

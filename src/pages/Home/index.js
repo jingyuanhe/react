@@ -9,7 +9,7 @@ export default class Home extends Component{
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <img  className='banner-img' src='//upload-images.jianshu.io/upload_images/1464364-6de002ec989a92e4.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/576/format/webp'></img>
+                    <img  className='banner-img' src='//upload-images.jianshu.io/upload_images/3459828-fdf30bf7e301a6e9.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/933/format/webp'></img>
                     <Topic></Topic>
                     <List></List>
                 </HomeLeft>
