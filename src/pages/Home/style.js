@@ -10,18 +10,19 @@ padding-top:30px;
 margin-left:15px;
 width:625px;
 .banner-img{
-    width:682px;
-    height:436px;
+    width:600px;
+    height:504px;
 }
 `
 export const HomeRight =styles.div`
-width:240px;
+width:280px;
 float:right;
 `
 export const TopicWrapper=styles.div`
 padding:20px 0 10px 0;
 overflow:hidden;
 margin-left:-18px;
+border-bottom:1px solid #ddd;
 `
 export const TopicItem=styles.div`
     float:left;
@@ -43,5 +44,45 @@ export const TopicItem=styles.div`
     }
 `
 export const ListItem=styles.div`
-    padding:20px;
+    padding:20px 0;
+    border-bottom:1px solid #dcdcdc;
+    overflow:hidden;
+    position: relative;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 15px 2px 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+    word-wrap: break-word;
+    .pic{
+        display:block;
+        float:right;
+        width:150px;
+        height:100px;
+    }
+`
+export const ListInfo=styles.div`
+    width:465px;
+    float:left;
+    .title{
+        line-height:27px;
+        font-size:18px;
+        font-weight:bold;
+        color:#333;
+        text-decoration: none;
+    }
+    .desc{
+        line-height:24px;
+        font-size:13px;
+        color:#999
+    }
+`
+export const RecommendWrapper=styles.div`
+    margin:30px 0;
+    width:280px;
+`
+export const RecommendItem=styles.div`
+    width:280px;
+    height:50px;
+    background:url(${(props)=>props.imgUrl});
+    background-size:contain;
 `

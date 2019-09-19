@@ -4,12 +4,19 @@ import Topic from './components/Topic'
 import List from './components/List'
 import Recommand from './components/Recommand'
 import Writer from './components/Writer'
-export default class Home extends Component{
+
+import {connect} from 'react-redux'
+import {actionCreator} from './store'
+class Home extends Component{
+    componentDidMount(){
+        this.props.getHomeList();
+        
+    }
     render(){
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <img  className='banner-img' src='//upload-images.jianshu.io/upload_images/3459828-fdf30bf7e301a6e9.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/933/format/webp'></img>
+                    <img  className='banner-img' src='//upload-images.jianshu.io/upload_images/5303650-16bd31b30bff0a71.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp'></img>
                     <Topic></Topic>
                     <List></List>
                 </HomeLeft>
@@ -21,3 +28,10 @@ export default class Home extends Component{
         )
     }
 }
+const mapDispatchToProps=(dispatch)=>({
+    getHomeList(){
+        const action=actionCreator.getHomeList();
+        dispatch(action);
+    }
+})
+export default connect(null,mapDispatchToProps)(Home)
