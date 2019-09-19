@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes'
 import axios from 'axios'
+import { fromJS } from 'immutable'
 export const getHomeList=()=>{
     return (dispatch)=>{
         axios.get('/api/home.json').then((res)=>{
@@ -11,6 +12,19 @@ export const getHomeList=()=>{
                 list:result.list
             }
             dispatch(action)
+        })
+    }
+}
+const addHomeList=(list,currentPage)=>({
+    type:actionTypes.GET_MORE_lIST,
+    list:fromJS(list),
+    currentPage
+})
+export const getMoreList=(currentPage)=>{
+    return (dispatch)=>{
+        axios.get('/api/getList.json?current='+currentPage).then((res)=>{
+            
+            dispatch(addHomeList(res.data.data,currentPage+1))
         })
     }
 }

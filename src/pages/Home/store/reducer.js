@@ -3,7 +3,8 @@ import * as types from './actionTypes'
 const defaultState=fromJS({
     topicList:[],
     recommendList:[],
-    list:[]
+    list:[],
+    currentPage:1
 })
 export default (state=defaultState,action)=>{
     switch(action.type){
@@ -12,6 +13,11 @@ export default (state=defaultState,action)=>{
                 topicList:fromJS(action.topicList),
                 recommendList:fromJS(action.recommendList),
                 list:fromJS(action.list)
+            })
+        case types.GET_MORE_lIST:
+            return state.merge({
+                list:state.get('list').concat(action.list),
+                currentPage:action.currentPage
             })
         default:
             return state      

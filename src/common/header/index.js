@@ -84,7 +84,7 @@ const mapStateToProps=(state)=>{
 const mapDispathToProps=(dispatch)=>{
     return{
         handleFocus(list){
-            list.size==0&&dispatch(actionCreator.getList());
+            list.size===0&&dispatch(actionCreator.getList());
             dispatch(actionCreator.inputFocus());
         },
         handleBlur(){

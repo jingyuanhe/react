@@ -6,7 +6,7 @@ import store from './store'
 import {Provider} from 'react-redux'
 import Home from './pages/Home'
 import Detail from './pages/details'
-import { BrowserRouter,Route,Link} from 'react-router-dom';
+import { BrowserRouter,Route} from 'react-router-dom';
 export default class App extends Component{
     render(){
         return(

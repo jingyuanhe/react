@@ -1,25 +1,35 @@
 import React,{Component} from 'react';
-import {ListItem,ListInfo} from '../style'
+import {ListItem,ListInfo,LoadMore} from '../style'
 import { connect } from 'react-redux';
+import {actionCreator} from '../store'
 class List extends Component{
     render(){
+        const {list,getMoreList,currentPage}=this.props;
         return (
-            this.props.list.map((item)=>(
-                <ListItem key={item.get('id')}>
+            <div>
+            {list.map((item,index)=>(
+                <ListItem key={index}>
                     <ListInfo>
                         <p className="title">{item.get('title')}</p>
                         <p className="desc">
                             {item.get('desc')}
                         </p>
                     </ListInfo>
-                    <img src={item.get('imgUrl')} className="pic"></img>
+                    <img src={item.get('imgUrl')} className="pic" alt=""></img>
             </ListItem>
-            ))
-            
+            ))}
+            <LoadMore onClick={()=>{getMoreList(currentPage)}}>加载更多</LoadMore>
+            </div>
         )
     }
 }
 const mapStateToProps=(state)=>({
-    list:state.getIn(['home','list'])
+    list:state.getIn(['home','list']),
+    currentPage:state.getIn(['home','currentPage'])
 })
-export default connect(mapStateToProps,null)(List)
+const mapDispachToProps=(dispatch)=>({
+    getMoreList(currentPage){
+        dispatch(actionCreator.getMoreList(currentPage))
+    }
+})
+export default connect(mapStateToProps,mapDispachToProps)(List)
