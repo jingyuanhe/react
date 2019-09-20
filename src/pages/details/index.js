@@ -1,7 +1,11 @@
 import React,{Component} from 'react';
 import {DetailWrapper,DetailContent,Header,Content} from './style'
 import { connect } from 'react-redux';
+import {actionCreator} from './store'
 class Detail extends Component{
+    componentDidMount(){
+        this.props.getDetail();
+    }
     render(){
         const {title,content}=this.props;
         return (
@@ -19,4 +23,9 @@ const mapStateToProps=(state)=>({
     title:state.getIn(['detail','title']),
     content:state.getIn(['detail','content'])
 })
-export default connect(mapStateToProps,null)(Detail)
+const mapDisPatchToProps=(dispatch)=>({
+    getDetail(){
+        dispatch(actionCreator.getDetail());
+    }
+})
+export default connect(mapStateToProps,mapDisPatchToProps)(Detail)
