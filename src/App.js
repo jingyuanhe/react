@@ -1,4 +1,4 @@
-import React,{Component, Fragment} from 'react'
+import React,{PureComponent, Fragment} from 'react'
 import {GlobalStyle} from './style'
 import {Iconfont} from '../src/assets/iconfont/iconfont'
 import Header from './common/header'
@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import Home from './pages/Home'
 import Detail from './pages/details'
 import { BrowserRouter,Route} from 'react-router-dom';
-export default class App extends Component{
+export default class App extends PureComponent{
     render(){
         return(
             <Fragment>

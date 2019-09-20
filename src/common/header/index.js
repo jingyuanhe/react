@@ -3,6 +3,7 @@ import {TopWrapper,HeaderWrapper,Logo,NavWrapper,Nav,NavItem,NavSearch,Addition,
 import { CSSTransition } from 'react-transition-group'
 import {connect} from 'react-redux'
 import {actionCreator} from './store'
+import {Link } from "react-router-dom";
 class Header extends Component{
     getListArea(){
         const {focused,list,mouseIn,currentPage,totalPage,handleMouseEnter,handleMouseLeave,handleChangePage}=this.props;
@@ -38,7 +39,9 @@ class Header extends Component{
         <TopWrapper>
         <NavWrapper>
                 <HeaderWrapper>
-                    <Logo href="/"></Logo>
+                    <Link to='/'>
+                        <Logo></Logo>
+                    </Link>
                     <Nav>
                         <NavItem className="left">首页</NavItem>
                         <NavItem className="left">下载App</NavItem>

@@ -22,8 +22,7 @@ min-width: 768px;
 max-width: 1440px;
 margin: 0 auto;
 `
-export const Logo=styles.a`
-display:block;
+export const Logo=styles.div`
 width:100px;
 height:56px;
 position:absolute;

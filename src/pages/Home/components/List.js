@@ -1,21 +1,25 @@
-import React,{Component} from 'react';
+import React,{PureComponent} from 'react';
 import {ListItem,ListInfo,LoadMore} from '../style'
 import { connect } from 'react-redux';
 import {actionCreator} from '../store'
-class List extends Component{
+import {Link } from "react-router-dom";
+class List extends PureComponent{
     render(){
         const {list,getMoreList,currentPage}=this.props;
         return (
             <div>
             {list.map((item,index)=>(
                 <ListItem key={index}>
-                    <ListInfo>
-                        <p className="title">{item.get('title')}</p>
-                        <p className="desc">
-                            {item.get('desc')}
-                        </p>
-                    </ListInfo>
-                    <img src={item.get('imgUrl')} className="pic" alt=""></img>
+                    <Link to="/detail">
+                        <ListInfo>
+                            <p className="title">{item.get('title')}</p>
+                            <p className="desc">
+                                {item.get('desc')}
+                            </p>
+                        </ListInfo>
+                        <img src={item.get('imgUrl')} className="pic" alt=""></img>
+                    </Link>
+                    
             </ListItem>
             ))}
             <LoadMore onClick={()=>{getMoreList(currentPage)}}>加载更多</LoadMore>
