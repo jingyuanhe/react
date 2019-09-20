@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {actionCreator} from './store'
 class Detail extends Component{
     componentDidMount(){
-        this.props.getDetail();
+        this.props.getDetail(this.props.match.params.id);
     }
     render(){
         const {title,content}=this.props;
@@ -24,8 +24,8 @@ const mapStateToProps=(state)=>({
     content:state.getIn(['detail','content'])
 })
 const mapDisPatchToProps=(dispatch)=>({
-    getDetail(){
-        dispatch(actionCreator.getDetail());
+    getDetail(id){
+        dispatch(actionCreator.getDetail(id));
     }
 })
 export default connect(mapStateToProps,mapDisPatchToProps)(Detail)
