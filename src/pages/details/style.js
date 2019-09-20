@@ -48,6 +48,8 @@ export const Content=styles.div`
         font-weight: 400;
         line-height: 1.8;
     }
-    b{font-weight: bolder;
+    b{
+        font-weight: bolder;
+        display:block;
     }
 `
