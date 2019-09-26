@@ -3,6 +3,7 @@ import {TopWrapper,HeaderWrapper,Logo,NavWrapper,Nav,NavItem,NavSearch,Addition,
 import { CSSTransition } from 'react-transition-group'
 import {connect} from 'react-redux'
 import {actionCreator} from './store'
+import {actionCreator as loginActionCreator} from '../../pages/login/store'
 import {Link } from "react-router-dom";
 class Header extends Component{
     getListArea(){
@@ -34,7 +35,7 @@ class Header extends Component{
         }
     }
     render(){
-        const {focused,handleFocus,handleBlur,list,isLogin,handleLogin}=this.props;
+        const {focused,handleFocus,handleBlur,list,isLogin,loginOut}=this.props;
     return(
         <TopWrapper>
         <NavWrapper>
@@ -59,8 +60,11 @@ class Header extends Component{
                             <i className={focused?'iconfont focused':'iconfont'}>&#xe62b;</i>
                             {this.getListArea()}
                         </SearchWrapper>
-                       
-                        <NavItem className="right" onClick={handleLogin}>{isLogin?'退出':'登陆'}</NavItem>
+                        {
+                            isLogin?<NavItem className="right" onClick={()=>{loginOut()}}>退出</NavItem>:
+                            <Link to='/login'><NavItem className="right">登陆</NavItem></Link>
+                        }
+                        
                         <NavItem className="right">
                         <i className="iconfont">&#xe609;</i>
                         </NavItem>
@@ -82,11 +86,14 @@ const mapStateToProps=(state)=>{
         mouseIn:state.getIn(['header','mouseIn']),
         currentPage:state.getIn(['header','currentPage']),
         totalPage:state.getIn(['header','totalPage']),
-        isLogin:state.getIn(['header','isLogin'])
+        isLogin:state.getIn(['login','isLogin'])
     }
 }
 const mapDispathToProps=(dispatch)=>{
     return{
+        loginOut(){
+            dispatch(loginActionCreator.loginOut())
+        },
         handleFocus(list){
             list.size===0&&dispatch(actionCreator.getList());
             dispatch(actionCreator.inputFocus());
@@ -99,9 +106,6 @@ const mapDispathToProps=(dispatch)=>{
         },
         handleMouseLeave(){
             dispatch(actionCreator.mouseLeave())
-        },
-        handleLogin(){
-            dispatch(actionCreator.login())
         },
         handleChangePage(currentPage,totalPage){
             if(currentPage<totalPage){

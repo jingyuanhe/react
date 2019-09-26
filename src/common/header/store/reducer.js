@@ -5,8 +5,7 @@ const defaultState=fromJS({
     mouseIn:false,
     list:[],
     currentPage:1,
-    totalPage:1,
-    isLogin:false
+    totalPage:1
 })
 export default (state=defaultState,action)=>{
     switch(action.type){
