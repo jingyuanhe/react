@@ -34,7 +34,7 @@ class Header extends Component{
         }
     }
     render(){
-        const {focused,handleFocus,handleBlur,list}=this.props;
+        const {focused,handleFocus,handleBlur,list,isLogin,handleLogin}=this.props;
     return(
         <TopWrapper>
         <NavWrapper>
@@ -60,7 +60,7 @@ class Header extends Component{
                             {this.getListArea()}
                         </SearchWrapper>
                        
-                        <NavItem className="right">登陆</NavItem>
+                        <NavItem className="right" onClick={handleLogin}>{isLogin?'退出':'登陆'}</NavItem>
                         <NavItem className="right">
                         <i className="iconfont">&#xe609;</i>
                         </NavItem>
@@ -81,7 +81,8 @@ const mapStateToProps=(state)=>{
         list:state.get('header').get('list'),
         mouseIn:state.getIn(['header','mouseIn']),
         currentPage:state.getIn(['header','currentPage']),
-        totalPage:state.getIn(['header','totalPage'])
+        totalPage:state.getIn(['header','totalPage']),
+        isLogin:state.getIn(['header','isLogin'])
     }
 }
 const mapDispathToProps=(dispatch)=>{
@@ -98,6 +99,9 @@ const mapDispathToProps=(dispatch)=>{
         },
         handleMouseLeave(){
             dispatch(actionCreator.mouseLeave())
+        },
+        handleLogin(){
+            dispatch(actionCreator.login())
         },
         handleChangePage(currentPage,totalPage){
             if(currentPage<totalPage){

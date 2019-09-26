@@ -6,6 +6,7 @@ import store from './store'
 import {Provider} from 'react-redux'
 import Home from './pages/Home'
 import Detail from './pages/details'
+import Login from './pages/login'
 import { BrowserRouter,Route} from 'react-router-dom';
 export default class App extends PureComponent{
     render(){
@@ -21,6 +22,7 @@ export default class App extends PureComponent{
                             <div>
                                 <Route exact path='/' component={Home}></Route>
                                 <Route exact path='/detail/:id' component={Detail}></Route>
+                                <Route exact path='/login' component={Login}></Route>
                             </div>
                         </BrowserRouter>
                     </div>

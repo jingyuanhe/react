@@ -43,6 +43,7 @@ padding:0 15px;
 font-size:17px;
 line-height:56px;
 color:#333;
+cursor:pointer;
 &.left{
     float:left;
 }
