@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Detail from './pages/details'
 import Login from './pages/login'
 import Write from './pages/write'
+import DownloadApp from './pages/downloadApp'
 import { BrowserRouter,Route} from 'react-router-dom';
 export default class App extends PureComponent{
     render(){
@@ -25,6 +26,7 @@ export default class App extends PureComponent{
                                 <Route exact path='/detail/:id' component={Detail}></Route>
                                 <Route exact path='/login' component={Login}></Route>
                                 <Route exact path='/write' component={Write}></Route>
+                                <Route exact path='/downloadApp' component={DownloadApp}></Route>
                             </div>
                         </BrowserRouter>
                     </div>

@@ -4,7 +4,8 @@ const defaultState=fromJS({
     topicList:[],
     recommendList:[],
     list:[],
-    currentPage:1
+    currentPage:1,
+    authorList:[]
 })
 export default (state=defaultState,action)=>{
     switch(action.type){
@@ -12,7 +13,8 @@ export default (state=defaultState,action)=>{
             return state.merge({
                 topicList:fromJS(action.topicList),
                 recommendList:fromJS(action.recommendList),
-                list:fromJS(action.list)
+                list:fromJS(action.list),
+                authorList:fromJS(action.authorList)
             })
         case types.GET_MORE_lIST:
             return state.merge({

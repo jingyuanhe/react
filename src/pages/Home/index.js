@@ -3,8 +3,8 @@ import {HomeWrapper,HomeLeft,HomeRight} from './style'
 import Topic from './components/Topic'
 import List from './components/List'
 import Recommand from './components/Recommand'
-import Writer from './components/Writer'
-
+import RecommendedAuthor from './components/RecommendedAuthor'
+import Download from './components/Download'
 import {connect} from 'react-redux'
 import {actionCreator} from './store'
 class Home extends PureComponent{
@@ -22,7 +22,8 @@ class Home extends PureComponent{
                 </HomeLeft>
                 <HomeRight>
                     <Recommand></Recommand>
-                    <Writer></Writer>
+                    <Download></Download>
+                    <RecommendedAuthor></RecommendedAuthor>
                 </HomeRight>
             </HomeWrapper>
         )

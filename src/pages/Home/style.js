@@ -97,3 +97,103 @@ export const LoadMore=styles.div`
     cursor:pointer;
     border-radius:20px;
 `
+//下载
+export const DownloadWrapper=styles.div`
+    margin-bottom: 30px;
+    padding: 10px 22px;
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    background-color: #fff;
+    img{
+        width: 60px;
+        height: 60px;
+        opacity: .85;
+        vertical-align: middle;
+    }
+`
+export const DownloadInfo=styles.div`
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+    .description{
+        margin-top: 4px;
+        font-size: 13px;
+        color: #999;
+    }
+`
+export const DownloadTitle=styles.div`
+    font-size: 15px;
+    color: #333;
+    .ic-link:before {
+        content: "\E616";
+    }
+`
+//作者列表
+export const AuthorWrapper=styles.div`
+    margin-bottom: 20px;
+    padding-top: 0;
+    font-size: 13px;
+    text-align: center;
+   
+`
+export const AuthorTitle=styles.div`
+    overflow:hidden;
+    span{
+        font-size: 14px;
+        color: #969696;
+        float:left;
+    }
+    .page-change{
+        float: right;
+        display: inline-block;
+        font-size: 14px;
+        color: #969696;
+        cursor:pointer;
+    }
+`
+export const AuthorList=styles.div`
+    margin:20px 0 20px;
+    text-align: left;
+    list-style: none;
+    li{
+        margin-top: 15px;
+        line-height:20px;
+        overflow:hidden;
+        .imgContainer{
+            float: left;
+            width: 48px;
+            height: 48px;
+            margin-right: 10px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            }
+        }
+    }
+`
+export const AuthorInfo=styles.div`
+    float:left;
+    width:70%;
+    .name{
+        padding-top: 5px;
+        margin-right: 60px;
+        font-size: 14px;
+        display: block;
+    }
+    p{
+        margin-top: 2px;
+        font-size: 12px;
+        color: #969696;
+    }
+`
+export const Authorfollow=styles.span`
+    float: right;
+    margin-top: 5px;
+    padding: 0;
+    font-size: 13px;
+    color: #42c02e;
+`

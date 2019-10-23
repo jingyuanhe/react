@@ -9,7 +9,8 @@ export const getHomeList=()=>{
                 type:actionTypes.GET_HOME_LIST,
                 topicList:result.topicList,
                 recommendList:result.recommendList,
-                list:result.list
+                list:result.list,
+                authorList:result.authorList
             }
             dispatch(action)
         })

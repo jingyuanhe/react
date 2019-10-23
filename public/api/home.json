@@ -43,6 +43,47 @@
             "title":"【原创】我初来上海，如何从月薪2000到月入过万的？",
             "desc":"1.'你必须非常努力，才能看起来毫不费力。'我看很多人把这句话当成座右铭，不知是否理解了其中的深意。 我刚来上海时，本想跟着好友Tommy工作...",
             "imgUrl":"http://upload-images.jianshu.io/upload_images/3301720-db890fabf626e0ac.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+        }],
+        "authorList":[{
+            "avatar_source": "http://upload.jianshu.io/users/upload_avatars/3343569/6940ee65-036f-4b7a-9935-5915d9b67d14.jpg",
+            "id": 3343569,
+            "is_following_user":false,
+            "nickname":"吴晓布",
+            "slug":"b3b2c03354f3",
+            "total_likes_count": 24428,
+            "total_wordage": 698375
+        },{
+            "avatar_source": "http://upload.jianshu.io/users/upload_avatars/9988193/fc26c109-1ae6-4327-a298-2def343e9cd8.jpg",
+            "id": 9988193,
+            "is_following_user": false,
+            "nickname": "董克平日记",
+            "slug": "51b4ef597b53",
+            "total_likes_count": 2151,
+            "total_wordage": 730690
+        },{
+            "avatar_source": "http://upload.jianshu.io/users/upload_avatars/301940/189d69dd-af7c-4290-9e2c-89e98acf3603.jpg",
+            "id": 301940,
+            "is_following_user": false,
+            "nickname": "卢璐说",
+            "slug": "ef4f2422125f",
+            "total_likes_count": 27164,
+            "total_wordage": 1239880
+        },{
+            "avatar_source": "http://upload.jianshu.io/users/upload_avatars/3136195/484e32c3504a.jpg",
+            "id": 3136195,
+            "is_following_user": false,
+            "nickname": "梅拾璎",
+            "slug": "6810a6332de9",
+            "total_likes_count": 29371,
+            "total_wordage": 274863
+        },{
+            "avatar_source": "http://upload.jianshu.io/users/upload_avatars/2558050/7761b285-2805-4534-9870-ba7dcc7538ec.jpg",
+            "id": 2558050,
+            "is_following_user": false,
+            "nickname": "阿栈",
+            "slug": "d99a7dfae9e4",
+            "total_likes_count": 1559,
+            "total_wordage": 472764
         }]
     },
     "success":true

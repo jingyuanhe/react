@@ -50,4 +50,19 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+*, :after, :before {
+    box-sizing: border-box;
+}
+.iconfont {
+    font-family: iconfont!important;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 400!important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
 `
