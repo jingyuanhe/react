@@ -1,10 +1,10 @@
-import React,{PureComponent} from 'react';
+import React,{useState} from 'react';
 import { connect } from 'react-redux';
-import {AuthorWrapper,AuthorTitle,AuthorList,AuthorInfo,Authorfollow} from '../style'
+import {AuthorWrapper,AuthorTitle,AuthorList,AuthorInfo,Authorfollow,MoreAuthor} from '../style'
 import {Link } from "react-router-dom";
-class RecommendedAuthor extends PureComponent{
-    render(){
-        let {authorList}=this.props;
+function RecommendedAuthor(props){
+        const [count, setCount] = useState(0);
+        let {authorList}=props;
         return (
             <AuthorWrapper>
                 <AuthorTitle>
@@ -35,9 +35,9 @@ class RecommendedAuthor extends PureComponent{
                         ))
                     }
                 </AuthorList>
+                <MoreAuthor>查看全部 <i className="iconfont">&#58974;</i></MoreAuthor>
             </AuthorWrapper>
         )
-    }
 }
 const mapStateToProps=(state)=>({
     authorList:state.getIn(['home','authorList']),

@@ -197,3 +197,14 @@ export const Authorfollow=styles.span`
     font-size: 13px;
     color: #42c02e;
 `
+export const MoreAuthor=styles.div`
+    padding: 7px 7px 7px 12px;
+    left: 0;
+    width: 100%;
+    font-size: 13px;
+    color: #787878;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    cursor:pointer;
+`
