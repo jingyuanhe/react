@@ -1,9 +1,8 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import {AuthorWrapper,AuthorTitle,AuthorList,AuthorInfo,Authorfollow,MoreAuthor} from '../style'
-import {Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 function RecommendedAuthor(props){
-        const [count, setCount] = useState(0);
         let {authorList}=props;
         return (
             <AuthorWrapper>
@@ -17,12 +16,12 @@ function RecommendedAuthor(props){
                     {
                         authorList.map((item,index)=>(
                             <li key={item.get('id')}>
-                                <Link>
+                                <Link to="/authorDetail">
                                     <span className="imgContainer">
                                         <img src={item.get('avatar_source')} alt=""></img>
                                     </span>
                                 </Link>
-                                <Link>
+                                <Link to="/authorDetail">
                                     <AuthorInfo>
                                         <h3 className="name">{item.get('nickname')}</h3>
                                         <p>写了{(item.get('total_wordage')/1000).toFixed(1)}k字 · {(item.get('total_likes_count')/1000).toFixed(1)}k喜欢</p>
@@ -35,7 +34,10 @@ function RecommendedAuthor(props){
                         ))
                     }
                 </AuthorList>
-                <MoreAuthor>查看全部 <i className="iconfont">&#58974;</i></MoreAuthor>
+                <Link to="/allAuthor">
+                    <MoreAuthor>查看全部 <i className="iconfont">&#58974;</i></MoreAuthor>
+                </Link>
+                
             </AuthorWrapper>
         )
 }

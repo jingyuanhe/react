@@ -9,6 +9,8 @@ import Detail from './pages/details'
 import Login from './pages/login'
 import Write from './pages/write'
 import DownloadApp from './pages/downloadApp'
+import AuthorDetail from './pages/authorDetail'
+import AllAuthor from './pages/allAuthor'
 import { BrowserRouter,Route} from 'react-router-dom';
 export default class App extends PureComponent{
     render(){
@@ -27,6 +29,8 @@ export default class App extends PureComponent{
                                 <Route exact path='/login' component={Login}></Route>
                                 <Route exact path='/write' component={Write}></Route>
                                 <Route exact path='/downloadApp' component={DownloadApp}></Route>
+                                <Route exact path='/authorDetail' component={AuthorDetail}></Route>
+                                <Route exact path='/allAuthor' component={AllAuthor}></Route>
                             </div>
                         </BrowserRouter>
                     </div>
