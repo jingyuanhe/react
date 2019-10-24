@@ -1,10 +1,11 @@
-import React,{useEffect}from 'react';
+import React,{useEffect,useState}from 'react';
 import {AuthorWrapper,ToBeAuthor,AuthorList,AuthoInfo,Fllow,RecentUpdate} from './style'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {actionCreator} from './store'
 function AllAuthor(props){
     const {getAuthorList,auhtorList}=props;
+    const [currentIndex,moveFocus]=useState(null);
     useEffect(()=>{
         getAuthorList();
     },[getAuthorList])
@@ -16,14 +17,14 @@ function AllAuthor(props){
             </ToBeAuthor>
             <AuthorList>
                 {
-                    auhtorList.map((item)=>(
+                    auhtorList.map((item,index)=>(
                         <div className="col-xs-8" key={item.get('id')}>
-                            <div className="wrap">
+                            <div className={currentIndex===index?'wrap focus':'wrap'} onMouseEnter={()=>moveFocus(index)} onMouseLeave={()=>moveFocus(null)}>
                                 <Link to={"/authorDetail/"+item.get('id')}>
                                         <AuthoInfo>
                                             <img src={item.get('avatar_source')} alt=""></img>
                                             <h2 className="name">                  
-                                                {item.get('name')} <i className="iconfont ic-man">&#59111;</i>
+                                                {item.get('name')} {item.get('sex')===1?(<i className="iconfont ic-man">&#59111;</i>):(<i className="iconfont ic-woman">&#58899;</i>)}
                                             </h2>
                                             <p className="description">{item.get('description')}</p>
                                         </AuthoInfo>

@@ -57,6 +57,7 @@ export const AuthorList=styles.div`
                 background-color: #f8f8f8;
             }
         }
+        .focus{box-shadow: 0 0 20px 0 #e6e6e6;}
     }
 `
 export const AuthoInfo=styles.div`
@@ -79,6 +80,9 @@ export const AuthoInfo=styles.div`
         white-space: nowrap;
         .ic-man{
             color: #3194d0;
+        }
+        .ic-woman {
+            color: #ea6f5a;
         }
     }
     .description{
