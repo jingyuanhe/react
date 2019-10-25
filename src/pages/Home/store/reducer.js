@@ -21,6 +21,10 @@ export default (state=defaultState,action)=>{
                 list:state.get('list').concat(action.list),
                 currentPage:action.currentPage
             })
+        case types.CHANGE_PAGE:
+            return state.merge({
+                authorList:fromJS(action.authorList)
+            })    
         default:
             return state      
     }

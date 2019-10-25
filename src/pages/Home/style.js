@@ -151,6 +151,11 @@ export const AuthorTitle=styles.div`
         color: #969696;
         cursor:pointer;
     }
+    .ic-search-change{
+        display: inline-block;
+        line-height: 1;
+        transition: .5s ease;
+    }
 `
 export const AuthorList=styles.div`
     margin:20px 0 20px;

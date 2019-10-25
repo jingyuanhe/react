@@ -29,3 +29,15 @@ export const getMoreList=(currentPage)=>{
         })
     }
 }
+export const pageChange=()=>{
+    return (dispatch)=>{
+        axios.get('/api/recommended.json').then((res)=>{
+            const result=res.data.data;
+            const action={
+                type:actionTypes.CHANGE_PAGE,
+                authorList:result
+            }
+            dispatch(action)
+        })
+    }
+}

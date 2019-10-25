@@ -44,7 +44,9 @@ class Header extends Component{
                         <Logo></Logo>
                     </Link>
                     <Nav>
-                        <NavItem className="left">首页</NavItem>
+                        <Link to='/'>
+                            <NavItem className="left">首页</NavItem>
+                        </Link>
                         <NavItem className="left">下载App</NavItem>
                         <SearchWrapper>
                             <CSSTransition

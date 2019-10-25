@@ -1,15 +1,21 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { connect } from 'react-redux';
 import {AuthorWrapper,AuthorTitle,AuthorList,AuthorInfo,Authorfollow,MoreAuthor} from '../style'
 import {Link} from "react-router-dom";
+import {actionCreator} from '../store'
 function RecommendedAuthor(props){
-        let {authorList}=props;
+        let {authorList,pageChange}=props;
+        let [rotate,setRotate]=useState(0);
+        function changeAuthor(num){
+            setRotate(num);
+            pageChange();
+        }
         return (
             <AuthorWrapper>
                 <AuthorTitle>
                     <span>推荐作者</span>
-                    <span className="page-change">
-                        <i className="iconfont">&#59105;</i> 换一批
+                    <span className="page-change" onClick={()=>{changeAuthor(rotate+180)}}>
+                        <i className="iconfont ic-search-change" style={{transform: "rotate("+rotate+"deg)"}}>&#59105;</i> 换一批
                     </span>
                 </AuthorTitle>
                  <AuthorList>
@@ -44,4 +50,9 @@ function RecommendedAuthor(props){
 const mapStateToProps=(state)=>({
     authorList:state.getIn(['home','authorList']),
 })
-export default connect(mapStateToProps,null)(RecommendedAuthor)
+const mapDispatchToProps=(dispatch)=>({
+    pageChange(){
+        dispatch(actionCreator.pageChange())
+    }
+})
+export default connect(mapStateToProps,mapDispatchToProps)(RecommendedAuthor)
