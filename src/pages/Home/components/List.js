@@ -29,6 +29,7 @@ class List extends PureComponent{
 }
 const mapStateToProps=(state)=>({
     list:state.getIn(['home','list']),
+    isLoading:state.getIn(['home','isLoading']),
     currentPage:state.getIn(['home','currentPage'])
 })
 const mapDispachToProps=(dispatch)=>({

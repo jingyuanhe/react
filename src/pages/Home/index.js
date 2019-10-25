@@ -10,8 +10,22 @@ import {actionCreator} from './store'
 class Home extends PureComponent{
     componentDidMount(){
         this.props.getHomeList();
-        
+        let _this = this;
+        window.addEventListener('scroll',()=>{_this.handleScroll()})
     }
+    handleScroll() {
+        const {currentPage,getMoreList,isLoading}=this.props;
+        const wrapperHeight=document.documentElement.clientHeight || document.body.clientHeight;
+        const scrollHeight=document.documentElement.scrollHeight || document.body.scrollHeight;
+        const scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+        if(scrollTop+wrapperHeight+20>=scrollHeight&&!isLoading&&currentPage<5){
+            getMoreList(currentPage)
+        }
+    }
+    componentWillUnmount(){
+        let _this = this;
+        window.removeEventListener('scroll',()=>{_this.handleScroll()},true)
+  }
     render(){
         return (
             <HomeWrapper>
@@ -33,6 +47,14 @@ const mapDispatchToProps=(dispatch)=>({
     getHomeList(){
         const action=actionCreator.getHomeList();
         dispatch(action);
+    },
+    getMoreList(currentPage){
+        dispatch(actionCreator.getMoreList(currentPage))
     }
 })
-export default connect(null,mapDispatchToProps)(Home)
+const mapStateToProps=(state)=>({
+    list:state.getIn(['home','list']),
+    isLoading:state.getIn(['home','isLoading']),
+    currentPage:state.getIn(['home','currentPage'])
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Home)

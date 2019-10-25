@@ -21,12 +21,16 @@ const addHomeList=(list,currentPage)=>({
     list:fromJS(list),
     currentPage
 })
+const beforeQequire=()=>({
+    type:actionTypes.BEFORE_QEQUIRE,
+    isLoading:true
+})
 export const getMoreList=(currentPage)=>{
     return (dispatch)=>{
+        dispatch(beforeQequire)
         axios.get('/api/getList.json?current='+currentPage).then((res)=>{
-            
             dispatch(addHomeList(res.data.data,currentPage+1))
-        })
+        })  
     }
 }
 export const pageChange=()=>{
