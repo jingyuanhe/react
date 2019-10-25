@@ -146,10 +146,12 @@ margin-bottom:15px;
 line-height:20px;
 font-size:14px;
 color:#969696;
+
 `
 export const SearchInfoSwitch=styles.span`
 float:right;
 font-size:13px;
+cursor:pointer
 `
 export const SearchInfoItem=styles.a`
 line-height:20px;
@@ -161,4 +163,5 @@ font-size:12px;
 border-radius:3px;
 margin-right:10px;
 margin-bottom:10px;
+cursor:pointer
 `
