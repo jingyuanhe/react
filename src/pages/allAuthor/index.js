@@ -1,10 +1,10 @@
 import React,{useEffect,useState}from 'react';
-import {AuthorWrapper,ToBeAuthor,AuthorList,AuthoInfo,Fllow,RecentUpdate} from './style'
+import {AuthorWrapper,ToBeAuthor,AuthorList,AuthoInfo,Fllow,RecentUpdate,LoadMore} from './style'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {actionCreator} from './store'
 function AllAuthor(props){
-    const {getAuthorList,auhtorList}=props;
+    const {getAuthorList,auhtorList,currentPage,getMoreAuthor}=props;
     const [currentIndex,moveFocus]=useState(null);
     useEffect(()=>{
         getAuthorList();
@@ -18,7 +18,7 @@ function AllAuthor(props){
             <AuthorList>
                 {
                     auhtorList.map((item,index)=>(
-                        <div className="col-xs-8" key={item.get('id')}>
+                        <div className="col-xs-8" key={index}>
                             <div className={currentIndex===index?'wrap focus':'wrap'} onMouseEnter={()=>moveFocus(index)} onMouseLeave={()=>moveFocus(null)}>
                                 <Link to={"/authorDetail/"+item.get('id')}>
                                         <AuthoInfo>
@@ -47,6 +47,7 @@ function AllAuthor(props){
                     ))
                 }
             </AuthorList>
+            <LoadMore onClick={()=>{getMoreAuthor(currentPage)}}>加载更多</LoadMore>
         </AuthorWrapper>
     )
 }
@@ -54,9 +55,13 @@ const mapDispatchToProps=(dispatch)=>({
     getAuthorList(){
         const action=actionCreator.getAuthorList();
         dispatch(action);
+    },
+    getMoreAuthor(currentPage){
+        dispatch(actionCreator.getMoreAuthor(currentPage))
     }
 })
 const mapStateToProps=(state)=>({
-    auhtorList:state.getIn(['author','auhtorList'])
+    auhtorList:state.getIn(['author','auhtorList']),
+    currentPage:state.getIn(['author','currentPage'])
 })
 export default connect(mapStateToProps,mapDispatchToProps)(AllAuthor)

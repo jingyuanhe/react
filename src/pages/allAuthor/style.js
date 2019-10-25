@@ -136,3 +136,33 @@ export const RecentUpdate=styles.div`
         display: block;
     }
 `
+export const LoadMore=styles.div`
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 38.2%;
+    padding: 10px 0;
+    margin: 40px 0;
+    font-size: 15px;
+    border-radius: 20px;
+    background-color: #a5a5a5;
+    border: none;
+    color:#fff;
+}
+`

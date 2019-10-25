@@ -20,6 +20,7 @@ export default (state=defaultState,action)=>{
                 recommendList:fromJS(action.recommendList),
                 list:fromJS(action.list),
                 isLoading:false,
+                currentPage:1,
                 authorList:fromJS(action.authorList)
             })
         case types.GET_MORE_lIST:
